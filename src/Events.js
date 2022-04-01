@@ -39,14 +39,16 @@ export function createLink() {
     a.href = 'https://tensor.ru/';
     a.textContent = 'tensor';
     let count = 0;
-    if (count == 0) {
+    if (count === 0) {
         a.addEventListener(
             'click',
             () => (a.textContent = `${a.textContent} ${a.href}`),
         );
         count++;
     } else {
-        a.addEventListener('click', preventDefault());
+        a.addEventListener('click', function (event) {
+            event.preventDefault();
+        });
     }
     document.body.append(a);
 }
